@@ -1,4 +1,4 @@
-package main
+package Plex2U
 
 import (
 	"bytes"
@@ -38,7 +38,6 @@ func (PlexEvent PlexEvent) IsValid() bool {
 }
 func (e PlexEvent) ForwardToIFTTT(body []byte) bool {
 	if e.IsValid() {
-		log.Debug("triggering event")
 		http.Post("https://maker.ifttt.com/trigger/"+e.Event+"/with/key/"+GetWebHook(), "Application/json", bytes.NewReader(body))
 		return true
 	}

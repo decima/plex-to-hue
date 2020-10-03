@@ -1,4 +1,4 @@
-package main
+package Plex2U
 
 import (
 	"encoding/json"

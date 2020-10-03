@@ -1,10 +1,11 @@
-package main
+package Plex2U
 
 import (
 	"github.com/sirupsen/logrus"
 	"github.com/spf13/viper"
 	"strings"
 )
+var log = logrus.New()
 
 func Configure() {
 	viper.SetDefault("webhook.key", "INVALID_KEY_NUMBER")
@@ -46,7 +47,7 @@ func PlayerIsAllowed(uuid string) bool {
 func GetWebHook() string {
 	return viper.GetString("webhook.key")
 }
-func isTimerEnabled() bool {
+func IsTimerEnabled() bool {
 	return viper.GetBool("timer.enable")
 }
 func GetLocation() (string, string) {
